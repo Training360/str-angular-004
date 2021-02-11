@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-6 offset-3">
+    <form #productFrom="ngForm" (ngSubmit)="onFormSubmit(productFrom)">
+      <div class="form-group">
+        <label>Name</label>
+        <input [(ngModel)]="product.name" name="name" type="text"
+          class="form-control" pattern=".{5,20}" required>
+        <div [hidden]="productFrom.controls.name?.valid" class="error-message">
+          A névnek minimum 5 maximum 20 karakter hosszúnak kell lennie!
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Price</label>
+        <input [(ngModel)]="product.price" name="price" type="number"
+          class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>SEO Name</label>
+        <input [(ngModel)]="product.seoName" name="seoName" type="text"
+          class="form-control" required>
+      </div>
+      <button [disabled]="productFrom.invalid" class="btn btn-block btn-primary">
+        <i class="fa fa-save"></i>
+      </button>
+    </form>
+  </div>
+</div>
