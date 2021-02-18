@@ -19,8 +19,9 @@
         <input [(ngModel)]="product.seoName" name="seoName" type="text"
           class="form-control" required>
       </div>
-      <button [disabled]="productFrom.invalid" class="btn btn-block btn-primary">
-        <i class="fa fa-save"></i>
+      <button [disabled]="productFrom.invalid || updating" class="btn btn-block btn-primary">
+        <i *ngIf="!updating" class="fa fa-save"></i>
+        <i *ngIf="updating" class="fa fa-refresh"></i>
       </button>
     </form>
   </div>
